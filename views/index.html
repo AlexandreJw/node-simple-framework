@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{title}}{% endblock%}
+
+{% block content %}
+<p> 测试</p>
+<script>
+  axios.get('/like')
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+</script>
+{% endblock %}
