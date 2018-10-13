@@ -1,3 +1,4 @@
+require('@babel/polyfill')
 const Koa  = require('koa')
 const router = require('koa-simple-router')
 const controllerInit = require('./controller/index-router')

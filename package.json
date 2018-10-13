@@ -4,11 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp": "gulp",
+    "dev": "cross-env NODE_ENV='development' webpack-dev-server --open --mode=development --config config/webpack.dev.config.js",
+    "prod": "cross-env NODE_ENV='production' webpack --mode=development --config config/webpack.prod.config.js"
   },
   "author": "Tommy",
   "license": "ISC",
   "dependencies": {
+    "babel-loader": "^8.0.4",
     "co": "^4.6.0",
     "koa": "^2.5.3",
     "koa-simple-router": "^0.2.0",
@@ -16,5 +20,24 @@
     "koa-swig": "^2.2.1",
     "request": "^2.88.0",
     "request-promise": "^4.2.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "clean-webpack-plugin": "^0.1.19",
+    "cross-env": "^5.2.0",
+    "css-hot-loader": "^1.4.2",
+    "css-loader": "^1.0.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^8.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.4",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-parallel-uglify-plugin": "^1.1.0"
   }
 }
