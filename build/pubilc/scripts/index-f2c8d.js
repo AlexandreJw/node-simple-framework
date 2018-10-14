@@ -1,16 +1,16 @@
 !function(s) {
     function e(e) {
-        for (var r, n, t = e[0], o = e[1], i = e[2], u = 0, c = []; u < t.length; u++) n = t[u], 
+        for (var r, n, t = e[0], i = e[1], o = e[2], u = 0, c = []; u < t.length; u++) n = t[u], 
         l[n] && c.push(l[n][0]), l[n] = 0;
-        for (r in o) Object.prototype.hasOwnProperty.call(o, r) && (s[r] = o[r]);
+        for (r in i) Object.prototype.hasOwnProperty.call(i, r) && (s[r] = i[r]);
         for (a && a(e); c.length; ) c.shift()();
-        return d.push.apply(d, i || []), p();
+        return d.push.apply(d, o || []), p();
     }
     function p() {
         for (var e, r = 0; r < d.length; r++) {
-            for (var n = d[r], t = !0, o = 1; o < n.length; o++) {
-                var i = n[o];
-                0 !== l[i] && (t = !1);
+            for (var n = d[r], t = !0, i = 1; i < n.length; i++) {
+                var o = n[i];
+                0 !== l[o] && (t = !1);
             }
             t && (d.splice(r--, 1), e = u(u.s = n[0]));
         }
@@ -59,12 +59,12 @@
         return u.d(r, "a", r), r;
     }, u.o = function(e, r) {
         return Object.prototype.hasOwnProperty.call(e, r);
-    }, u.p = "";
+    }, u.p = "http://192.168.100.107:3000";
     var r = window.webpackJsonp = window.webpackJsonp || [], t = r.push.bind(r);
     r.push = e, r = r.slice();
-    for (var o = 0; o < r.length; o++) e(r[o]);
+    for (var i = 0; i < r.length; i++) e(r[i]);
     var a = t;
-    d.push([ 0, "common/vendor" ]), p();
+    d.push([ 0, "vendor" ]), p();
 }({
     "./src/pubilc/scripts/indexadd.es6": function(module, exports) {
         eval("window.add = function (num) {\n  return num + 1;\n};\n\n//# sourceURL=webpack:///./src/pubilc/scripts/indexadd.es6?");

@@ -1,30 +1,38 @@
-module.exports = function(templateParams, cssList) {
-  var cssList=['vendor'];
+"use strict";
+
+module.exports = function (templateParams, cssList) {
+  var cssList = ['vendor'];
   var _files = templateParams.htmlWebpackPlugin.files;
   var _regChunk = templateParams.htmlWebpackPlugin.options.chunks;
   var _regCss = cssList;
   var _scripts = "";
   var _styles = "";
   var _scriptsshow = [];
+
   for (var i = 0; i < _regChunk.length; i++) {
     _scripts += "<script type='text/javascript'  src='" + _files.chunks[_regChunk[i]]['entry'] + "'></script>";
-    _scriptsshow.push("'"+_files.chunks[_regChunk[i]]['entry']+"'");
+
+    _scriptsshow.push("'" + _files.chunks[_regChunk[i]]['entry'] + "'");
   }
+
   for (var k = 0; k < _regCss.length; k++) {
     var _cssitem = _regCss[k],
-      _cssitems = new RegExp("^" + _cssitem),
-      _cssiteme = new RegExp(".css$");
-    (_files.css).map(function(filename) {
+        _cssitems = new RegExp("^" + _cssitem),
+        _cssiteme = new RegExp(".css$");
+
+    _files.css.map(function (filename) {
       var _filearr = filename.split('/'),
-        filrdata = _filearr[_filearr.length - 1];
+          filrdata = _filearr[_filearr.length - 1];
+
       if (_cssitems.test(filrdata) && _cssiteme.test(filrdata)) {
         _styles += '<link rel="stylesheet" type="text/css" href="' + filename + '"/>';
       }
     });
   }
+
   return {
     scripts: _scripts,
     styles: _styles,
     scriptsshow: _scriptsshow
-  }
-}
+  };
+};

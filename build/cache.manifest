@@ -1,0 +1,9 @@
+CACHE MANIFEST
+# Time: Sun Oct 14 2018 18:29:16 GMT+0800 (CST)
+# praisethumb4
+
+CACHE:
+./pubilc/css/vendor.css
+
+NETWORK:
+ *

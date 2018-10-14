@@ -1,15 +1,1 @@
-Html Webpack Plugin:
-<pre>
-  TypeError: Cannot read property 'entry' of undefined
-  
-  - loader.js:12 module.exports
-    [index.js?.]/[_html-webpack-plugin@3.2.0@html-webpack-plugin]/lib/loader.js:12:86
-  
-  - index.js:284 Promise.resolve.then
-    [2week-redo]/[_html-webpack-plugin@3.2.0@html-webpack-plugin]/index.js:284:18
-  
-  
-  - next_tick.js:188 process._tickCallback
-    internal/process/next_tick.js:188:7
-  
-</pre>
+{% extends './layout.html' %}{% block title %}My Page{% endblock %}{% block styles %}<link rel="stylesheet" type="text/css" href="http://192.168.100.107:3000/pubilc/css/vendor-f2c8d.css"/>{% endblock %}{% block content %}{% include '../widget/index.html' %}{% endblock %}{% block script %}<script>(function(){var flag=false;var scriptsshow=['http://192.168.100.107:3000/pubilc/scripts/vendor-f2c8d.js','http://192.168.100.107:3000/pubilc/scripts/index-f2c8d.js','http://192.168.100.107:3000/pubilc/scripts/tag-f2c8d.js'];for(let i=0; i<scriptsshow.length;i++){let a=scriptsshow[i];if(localStorage.getItem(a)){$("<scr"+"ipt>"+localStorage.getItem(a)+"</scr"+"ipt>").attr({type:"text/javascript",id:i}).appendTo($("head").remove("#"+i));}else{$.getScript({url:a,success:function(data){localStorage.setItem(a,data)}});}}})()</script>{% endblock %}

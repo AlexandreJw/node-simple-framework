@@ -21,7 +21,7 @@ app.use(serve(config.get('pubilcDir')));
 app.context.render = co.wrap(render({
   root: config.get('viewsDir'),
   autoescape: true,
-  cache: 'memory',
+  cache: false,
   // disable, set to false
   ext: 'html'
 }));

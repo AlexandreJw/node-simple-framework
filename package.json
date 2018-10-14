@@ -6,18 +6,20 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "gulp": "gulp",
-    "dev": "cross-env NODE_ENV='development' webpack-dev-server --open --mode=development --config config/webpack.dev.config.js",
+    "dev": "cross-env NODE_ENV='development' webpack --mode=development --watch --config config/webpack.dev.config.js",
     "prod": "cross-env NODE_ENV='production' webpack --mode=development --config config/webpack.prod.config.js"
   },
   "author": "Tommy",
   "license": "ISC",
   "dependencies": {
+    "@babel/polyfill": "^7.0.0",
     "babel-loader": "^8.0.4",
     "co": "^4.6.0",
     "koa": "^2.5.3",
     "koa-simple-router": "^0.2.0",
     "koa-static": "^5.0.0",
     "koa-swig": "^2.2.1",
+    "koa-webpack-dev-middleware": "^2.0.2",
     "request": "^2.88.0",
     "request-promise": "^4.2.2"
   },
@@ -38,6 +40,8 @@
     "style-loader": "^0.23.1",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2",
+    "webpack-livereload-plugin": "^2.1.1",
+    "webpack-manifest": "^1.0.8",
     "webpack-parallel-uglify-plugin": "^1.1.0"
   }
 }

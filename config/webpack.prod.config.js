@@ -5,6 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin') // 清空打包目录
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin') //css压缩
 const WebpackParallelUglifyPlugin = require('webpack-parallel-uglify-plugin') // js格式化-压缩
 const HtmlWebpackPlugin = require('html-webpack-plugin') // 生成html的插件
+const LiveReloadPlugin = require('webpack-livereload-plugin');
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
@@ -12,11 +13,15 @@ module.exports = {
       './src/pubilc/scripts/index.es6',
       './src/pubilc/scripts/indexadd.es6'
     ],
-    tag: './src/pubilc/scripts/tag.es6'
+    tag: [
+      './src/pubilc/scripts/tag.es6',
+      './src/pubilc/scripts/star.es6'
+    ]
   },
   output: {
     filename: 'pubilc/scripts/[name]-[hash:5].js',
-    path: path.join(__dirname, '..', 'build')
+    path: path.join(__dirname, '..', 'build'),
+    publicPath: 'http://192.168.100.107:3000'
   },
   module: {
     rules: [
@@ -33,9 +38,9 @@ module.exports = {
   optimization: { //webpack4.x的最新优化配置项，用于提取公共代码
     splitChunks: {
       cacheGroups: {
-        commons: {
+        vendor: {
           chunks: 'initial',
-          name: 'common/vendor',
+          name: 'vendor',
           minChunks: 2,
           maxInitialRequests: 5, // The default limit is too small to showcase the effect
           minSize: 0, // This is example is too small to create commons chunks
@@ -45,6 +50,9 @@ module.exports = {
     }
   },
   plugins: [
+    new LiveReloadPlugin({
+      appendScriptTag: true
+    }),
     new ExtractTextPlugin('pubilc/css/[name]-[hash:5].css'),
     new CleanWebpackPlugin(['build/pubilc'], {
       root: path.join(__dirname, '..'),
@@ -78,22 +86,25 @@ module.exports = {
       filename: './views/index.html',
       template: 'src/views/index.js',
       inject: false,
-      chunks: ['vendor', 'index', 'tag']
+      chunks: ['vendor', 'index', 'tag'],
+      cache:false
     }),
     new HtmlWebpackPlugin({
       filename: './widget/index.html',
       template: 'src/widget/index.html',
       inject: false
-    })
-    // new HtmlWebpackPlugin({
-    //   filename:'./views/layout.html',
-    //   template:'src/widget/layout.html',
-    //   inject:true
-    // }),
-    // new HtmlWebpackPlugin({
-    //   filename:'./views/index.html',
-    //   template:'src/widget/index.html',
-    //   inject:false
-    // })
+    }),
+    new HtmlWebpackPlugin({
+      filename: './views/star.html',
+      template: 'src/views/star.js',
+      inject: false,
+      chunks: ['vendor', 'index', 'tag'],
+      cache:false
+    }),
+    new HtmlWebpackPlugin({
+      filename: './widget/star.html',
+      template: 'src/widget/star.html',
+      inject: false
+    }),
   ]
 }

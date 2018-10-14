@@ -3,9 +3,9 @@ class PraiseButton {
   constructor() {
   }
   clickAction() {
-    axios.get('/index/update')
+    axios.get('/like')
       .then(function (response) {
-        console.log(response);
+        console.log(response+'e');
       })
       .catch(function (error) {
         console.log(error);

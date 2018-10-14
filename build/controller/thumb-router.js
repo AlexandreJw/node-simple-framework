@@ -52,6 +52,125 @@ function () {
         }()
       );
     }
+  }, {
+    key: "star",
+    value: function star() {
+      return (
+        /*#__PURE__*/
+        function () {
+          var _ref2 = _asyncToGenerator(
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee2(ctx) {
+            return regeneratorRuntime.wrap(function _callee2$(_context2) {
+              while (1) {
+                switch (_context2.prev = _context2.next) {
+                  case 0:
+                    if (!ctx.request.headers['x-pjax']) {
+                      _context2.next = 4;
+                      break;
+                    }
+
+                    ctx.body = '<x-star></x-star>';
+                    _context2.next = 7;
+                    break;
+
+                  case 4:
+                    _context2.next = 6;
+                    return ctx.render('star.html', {
+                      title: '星星点赞'
+                    });
+
+                  case 6:
+                    ctx.body = _context2.sent;
+
+                  case 7:
+                  case "end":
+                    return _context2.stop();
+                }
+              }
+            }, _callee2, this);
+          }));
+
+          return function (_x2) {
+            return _ref2.apply(this, arguments);
+          };
+        }()
+      );
+    }
+  }, {
+    key: "praise",
+    value: function praise() {
+      return (
+        /*#__PURE__*/
+        function () {
+          var _ref3 = _asyncToGenerator(
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee3(ctx) {
+            return regeneratorRuntime.wrap(function _callee3$(_context3) {
+              while (1) {
+                switch (_context3.prev = _context3.next) {
+                  case 0:
+                    if (!ctx.request.headers['x-pjax']) {
+                      _context3.next = 4;
+                      break;
+                    }
+
+                    ctx.body = '<x-praise></x-praise>';
+                    _context3.next = 7;
+                    break;
+
+                  case 4:
+                    _context3.next = 6;
+                    return ctx.render('index.html', {
+                      title: '大拇指点赞'
+                    });
+
+                  case 6:
+                    ctx.body = _context3.sent;
+
+                  case 7:
+                  case "end":
+                    return _context3.stop();
+                }
+              }
+            }, _callee3, this);
+          }));
+
+          return function (_x3) {
+            return _ref3.apply(this, arguments);
+          };
+        }()
+      );
+    }
+  }, {
+    key: "advertisement",
+    value: function advertisement() {
+      return (
+        /*#__PURE__*/
+        function () {
+          var _ref4 = _asyncToGenerator(
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee4(ctx) {
+            return regeneratorRuntime.wrap(function _callee4$(_context4) {
+              while (1) {
+                switch (_context4.prev = _context4.next) {
+                  case 0:
+                    ctx.body = "<div style='height: 200px;background: #b9511b'>aaaaaaaaaaaa</div>";
+
+                  case 1:
+                  case "end":
+                    return _context4.stop();
+                }
+              }
+            }, _callee4, this);
+          }));
+
+          return function (_x4) {
+            return _ref4.apply(this, arguments);
+          };
+        }()
+      );
+    }
   }]);
 
   return ThumbController;
